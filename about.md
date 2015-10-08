@@ -4,8 +4,6 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+This website reports about open source activities on MPTCP done at <a href="http://www.lip6.fr">LIP6</a>, the computer science department of <a href="http://www.upmc.fr">Université Pierre et Marie Curie (UPMC) - Paris VI</a>, France.
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
-
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+The maintainers are <a href="http://www.lip6.fr/actualite/personnes-fiche.php?ident=D1337">Matthieu Coudron</a> (main developer), <a href:"http://www.lip6.fr/actualite/personnes-fiche.php?ident=P897">Dung Chi Phung</a> and <a href="http://lip6.fr/Stefano.Secci">Stefano Secci</a>. 
