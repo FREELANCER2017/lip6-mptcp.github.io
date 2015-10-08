@@ -2,7 +2,7 @@
 title: Multipath TCP simulator for the Network Simulator ns3
 email: matthieu.coudron@lip6.fr
 description: > # this means to ignore newlines until "baseurl:"
-  This website presents a set of modifications done to the ns3 simulator in order to simulate Multipath TCP. It also contains links to modifications of other programs related to MPTCP analysis such as ns3 DCE or wireshark etc...
+  This website reports about open source activities on MPTCP done at LIP6, the computer science department of Université Pierre et Marie Curie (UPMC) - Paris VI, France.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://mptcp-ns3.lip6.fr" # the base hostname & protocol for your site
 github_username:  lip6-mptcp
