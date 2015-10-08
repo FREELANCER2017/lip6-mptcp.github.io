@@ -1,5 +1,5 @@
 # Site settings
-title: Multipath TCP simulator for the Network Simulator ns3
+title: LIP6-MPTCP open source project
 email: matthieu.coudron@lip6.fr
 description: > # this means to ignore newlines until "baseurl:"
   This website reports about open source activities on MPTCP done at LIP6, the computer science department of Université Pierre et Marie Curie (UPMC) - Paris VI, France.
