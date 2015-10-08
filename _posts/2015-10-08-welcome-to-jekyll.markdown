@@ -4,7 +4,7 @@ title:  "MPTCP simulator"
 date:   2015-10-08 14:00:27
 categories: mptcp ns3 dce
 ---
-This page is a frontend to present the work done at <a href="http://www.lip6.fr">LIP6</a> concerning the addition of multipath TCP (MPTCP) support to the network simulator [ns3][ns3].
+We just posted on github a variation of the network simulator [ns3][ns3] to support multipath TCP (MPTCP).
 
 For our studies, we developed additions to ns3, its Direct Code Execution extension (DCE), wireshark and other programs (iperf3 etc...).
 Our intent is to regroup those changes [in a single github repo][mptcp-ns3] while improving them. For now some of theses changes live in other repositories [(as for DCE)][mptcp-dce].
