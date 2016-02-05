@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title:  "MPTCP dissection in wireshark"
@@ -8,28 +7,32 @@ categories: mptcp wireshark
 
 [Wireshark] is a network i
 Over the past year, we introduced a number of improvements in MPTCP related dissection:
-1. https://code.wireshark.org/review/10577
-2. https://code.wireshark.org/review/11683
-3. https://code.wireshark.org/review/10504
-4. https://code.wireshark.org/review/10577
-5. https://code.wireshark.org/review/11683
-(To get a full list of loosely related changes, you can run $ git log --author="Matthieu Coudron" in your wireshark repository).
 
-There is a last patch pending that needs more work & tests before upstreaming:
-https://code.wireshark.org/review/#/c/12316/
+1. [Registers an 'mptcp' protocol](https://code.wireshark.org/review/10577)
+2. [Introduced interval trees to handle DSN/SSN research](https://code.wireshark.org/review/#/c/11714/)
 
-For ease of use, we provide a github mirror [custom] incorporating all current changes (branch mptcp_final). Keep in mind it is a work in progress and don't hesitate to report possible bugs in the github tracker.
+To get a full list of loosely related changes, you can run in your wireshark repository:
+{% highlight bash %}
+$ git log --author="Matthieu Coudron" 
+{% endhighlight %}
+
+There is a [last patch](https://code.wireshark.org/review/#/c/12316/) pending that needs more work & tests before upstreaming.
+
+For ease of use, we provide a custom [github mirror](https://github.com/lip6-mptcp/wireshark-mptcp) incorporating all current changes (checkout the branch 'mptcp_final'). 
 
 Here is a picture of some additionnal fields that are available when using our version of wireshark:
-![wireshark ](./images/wireshark_news.png)
+![wireshark]({{ site.baseurl }}/images/wireshark_new.png)
 
 The building is the same as for vanilla wireshark. Here is an example on how to install/use it with cmake (wireshark can use autotools directly or cmake):
+
+{% highlight bash %}
 $ git clone https://github.com/lip6-mptcp/wireshark-mptcp.git
 $ cd wireshark-mptcp
 $ mkdir debug
 $ cd debug
-
+{% endhighlight %}
 Here is my custom command, feel free to change the compiler to yours or just remove the commands:
+{% highlight bash %}
 $ CXXFLAGS="-Wno-unused-but-set-variable" cmake \
         -G"Unix Makefiles" \
         -DENABLE_GTK3=0 \
@@ -52,17 +55,12 @@ $ CXXFLAGS="-Wno-unused-but-set-variable" cmake \
         -DCMAKE_CXX_COMPILER=clang++ 
 
 $ make wireshark
+{% endhighlight %}
+Full MPTCP dissection can be quite CPU-consuming (optimization was not our priority), thus we provide some options to enable only the needed features in the menu "Edit -> Preferences -> Protocols -> MPTCP". Just tick the boxes but keep in mind it is a work in progress and don't hesitate to report (or fix) bugs in the github tracker.
 
-Full MPTCP dissection can be quite CPU-consuming (optimization was not our priority), thus we provide some options to enable only the needed features.
-![options](./images/wireshark_options.png).
-
-Here is my custom MPTCP profile [mptcpprofile] in case it helps (finding the field names) !
-
-Keep in mind this is Work In Progress.
+Here is [my custom MPTCP profile](https://github.com/teto/home/blob/master/config/wireshark/profiles/mptcp/preferences) in case it helps (finding the field names) !
 
 Matt
 
-[custom]: 		https://github.com/lip6-mptcp/wireshark-mptcp
 [Wireshark]:       http://www.wireshark.org
 [mptcpanalyzer]:   https://github.com/lip6-mptcp/mptcpanalyzer
-[mptcpprofile]:	   https://github.com/teto/home/blob/master/config/wireshark/profiles/mptcp/preferences
