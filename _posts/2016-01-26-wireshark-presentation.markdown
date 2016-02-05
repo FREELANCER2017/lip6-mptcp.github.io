@@ -5,11 +5,11 @@ date:   2016-10-08 14:00:27
 categories: mptcp wireshark
 ---
 
-[Wireshark] is a network i
+[Wireshark] is a network analyzer.
 Over the past year, we introduced a number of improvements in MPTCP related dissection:
 
 1. [Registers an 'mptcp' protocol](https://code.wireshark.org/review/10577)
-2. [Introduced interval trees to handle DSN/SSN research](https://code.wireshark.org/review/#/c/11714/)
+2. [Introduced interval trees to handle DSN/SSN search](https://code.wireshark.org/review/#/c/11714/)
 
 To get a full list of loosely related changes, you can run in your wireshark repository:
 {% highlight bash %}
