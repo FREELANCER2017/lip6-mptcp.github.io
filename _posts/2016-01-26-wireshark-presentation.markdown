@@ -5,6 +5,9 @@ date:   2016-01-26 14:00:27
 categories: mptcp wireshark
 ---
 
+*UPDATE*: The [last pending patch](https://code.wireshark.org/review/#/c/12316/) got merged end of march. 
+You can now use upstream wireshark \o/
+
 [Wireshark] is a network analyzer.
 Over the past year, we introduced a number of improvements in MPTCP related dissection:
 
