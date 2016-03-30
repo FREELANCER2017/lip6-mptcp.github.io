@@ -70,7 +70,61 @@ Full MPTCP dissection can be quite CPU-consuming (optimization was not our prior
 
 Here is [my custom MPTCP profile](https://github.com/teto/home/blob/master/config/wireshark/profiles/mptcp/preferences) in case it helps (finding the field names) !
 
+
+
+
+New Linux mptcp version (0.88) with DCE.
+
+As Linux mptcp version 0.88 has released (http://multipath-tcp.org/pmwiki.php?n=Main.Release88), the following is the update for DCE integration of the version. This version is based on Linux 3.11.0 branch of net-next-sim (DCE).
+
+1. get mptcp code
+ % git clone -b mptcp_v0.88 git://github.com/multipath-tcp/mptcp
+
+2. add ns-3-dce (Direct Code Execution) code and merge to mptcp code
+ % cd mptcp
+ % git remote add dce git://github.com/direct-code-execution/net-next-sim.git 
+ % git fetch dce
+ % git merge dce/sim-ns3-3.11.0-branch
+
+3. patch a bit manually
+% cat >> arch/sim/defconfig <<END
+CONFIG_MPTCP=y
+CONFIG_MPTCP_PM_ADVANCED=y
+CONFIG_MPTCP_FULLMESH=y
+CONFIG_MPTCP_NDIFFPORTS=y
+CONFIG_DEFAULT_FULLMESH=y
+CONFIG_DEFAULT_MPTCP_PM="fullmesh"
+CONFIG_TCP_CONG_COUPLED=y
+CONFIG_TCP_CONG_OLIA=y
+
+END
+
+% make defconfig ARCH=sim
+
+3.1 or menuconfig to enable these options
+% make menuconfig ARCH=sim
+
+4. build kernel (as a shared library)
+ % make library ARCH=sim
+
+If everything is going well, you can try to use it over ns-3
+
+1. build ns-3 related tools
+ % make testbin -C arch/sim/test
+
+2. run mptcp simulation !
+ % cd arch/sim/test/buildtop/source/ns-3-dce
+ % ./waf --run dce-iperf-mptcp
+
+you will see generated pcap files by this execution.
+
+build steps for DCE integration is also available as a script;
+
+https://gist.github.com/thehajime/8077571/raw/d663819992cf9822b150bd8e8c14474bb363a9d9/mptcp0.88-build.sh﻿
+
 Matt
 
 [Wireshark]:       http://www.wireshark.org
 [mptcpanalyzer]:   https://github.com/lip6-mptcp/mptcpanalyzer
+[tuto_mptcp0.86]: https://plus.google.com/u/0/+HajimeTazaki/posts/aYuboVFcQeF
+[tuto_mptcp0.88]: https://plus.google.com/+HajimeTazaki/posts/1QUmR3n3vNA
