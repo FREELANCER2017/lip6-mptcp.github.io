@@ -1,6 +1,6 @@
 # Site settings
 title: LIP6-MPTCP open source project
-email: matthieu.coudron@lip6.fr
+email: matthieu.coudron@lip6.fr, coudron@iij.ad.jp
 description: > # this means to ignore newlines until "baseurl:"
   This website reports about open source activities on MPTCP done at LIP6, the computer science department of Université Pierre et Marie Curie (UPMC) - Paris VI, France.
 baseurl: "" # the subpath of your site, e.g. /blog/
